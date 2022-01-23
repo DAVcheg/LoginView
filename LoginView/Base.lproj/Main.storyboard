@@ -63,7 +63,8 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="ImE-SV-QUm" kind="show" id="nHG-f6-0xx"/>
+                                    <action selector="logInButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="EFD-Uu-05z"/>
+                                    <segue destination="ImE-SV-QUm" kind="show" id="InB-vi-BAt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -84,8 +85,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="SQd-5I-paT"/>
                     <connections>
-                        <outlet property="passwordTF" destination="e8V-76-pmS" id="ALJ-ls-utv"/>
-                        <outlet property="userNameTF" destination="Y9j-aI-fPI" id="LdS-XV-TOE"/>
+                        <outlet property="passwordValueTF" destination="e8V-76-pmS" id="6qT-F4-ZyP"/>
+                        <outlet property="userNameValueTF" destination="Y9j-aI-fPI" id="Nwl-Lg-hD7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -95,9 +96,9 @@
         <!--Welcome View Controller-->
         <scene sceneID="ZNE-oj-S8i">
             <objects>
-                <viewController id="ImE-SV-QUm" customClass="WelcomeViewController" customModule="LoginView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Welcome" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ImE-SV-QUm" customClass="WelcomeViewController" customModule="LoginView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PGV-ES-eBg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hmm-gu-YHn">
@@ -124,7 +125,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="logOutButton" destination="ImE-SV-QUm" eventType="touchUpInside" id="XXv-LP-SsU"/>
+                                    <segue destination="qth-YJ-UbG" kind="unwind" unwindAction="unwindFor:" id="y7b-S3-iif"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lP-PT-5Ec">
@@ -151,6 +152,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGD-8E-mam" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="qth-YJ-UbG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1167" y="-575"/>
         </scene>

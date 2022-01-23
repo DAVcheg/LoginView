@@ -11,15 +11,16 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet var userNameLabel: UILabel!
     
+    var userName = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        userNameLabel.text = userName
     }
     
 
     @IBAction func logOutButton() {
         dismiss(animated: true)
-        print("Я кнопка")
     }
     
 }

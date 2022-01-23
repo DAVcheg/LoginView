@@ -9,39 +9,111 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var userNameTF: UITextField!
-    @IBOutlet var passwordTF: UITextField!
-   
-    private let namePasswordArray = ("String" : "String")
+    @IBOutlet var userNameValueTF: UITextField!
+    @IBOutlet var passwordValueTF: UITextField!
     
+    private var userNameSession = "User"
+    private let namePasswordArray = ["User" : "Password"]
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     @IBAction func forgotNameButton() {
-        let alertController = UIAlertController(
-            title: "Oops!",
-            message: "Your name is User",
-            preferredStyle:.alert)
-        // создаем кнопку OK
-        let actionOK = UIAlertAction(title: "OK", style: .default, handler: nil)
-        // Добавляем обе кнопки в Alert Controller
-        alertController.addAction(actionOK)
-        self.present(alertController, animated: true, completion: nil)
+        showAlert(with: "", and: "Your name is \(userNameSession)")
     }
-
     
     @IBAction func forgotPasswordButton() {
-        let alertController = UIAlertController(
-            title: "Oops!",
-            message: "Your password is Password",
-            preferredStyle:.alert)
-        let actionOK = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(actionOK)
-        self.present(alertController, animated: true, completion: nil)
+        showAlert(with: "", and: "Your password is Password")
+    }
+    
+    @IBAction func logInButton() {
+        userNameValueTF.text!.isEmpty ? showAlert(with: "Attention", and: "Enter your name" ) : print("Name enter")
+        passwordValueTF.text!.isEmpty ? showAlert(with: "Attention", and: "Enter your password" ) : print("Password enter")
+        for (userName, password) in namePasswordArray {
+            userNameSession = userName
+            if userNameValueTF.text != userName || passwordValueTF.text != password {
+                showAlert(with: "Attention", and: "Your name or password is wrong")
+            }
+            break
+        }
+    }
+    
+    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
+        guard unwindSegue.source is WelcomeViewController else { return }
+        userNameValueTF.text = ""
+        passwordValueTF.text = ""
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let WelcomeVC = segue.destination as? WelcomeViewController else { return }
+        WelcomeVC.userName = userNameSession
+    }
+    
+    
+    private func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+  //   Метод для скрытия клавиатуры тапом по экрану
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
     }
     
 }
+
+
+
+//            while userNameValueTF.text != userName || passwordValueTF.text != password {
+//                showAlert(with: "Oops!", and: "Your name or password is wrong")
+//                print("Your name or password is wrong")
+//                break
+//            }
+            //            guard (userNameValueTF.text == userName) || (passwordValueTF.text == password) else {
+            //                showAlert(with: "Oops!", and: "Your name or password is wrong")
+            //                print("Your name or password is wrong")
+            //                return
+            //            }
+
+//        if userNameValueTF.text != nil, userNameValueTF.text?.count != 0 {
+//            for (userName, _) in namePasswordArray {
+//                if userNameValueTF.text == userName {
+//                    continue
+//                }
+//            }
+//        } else {
+//            let alertController = UIAlertController(
+//                title: "",
+//                message: "Enter your name",
+//                preferredStyle:.alert)
+//            let actionOK = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            alertController.addAction(actionOK)
+//            self.present(alertController, animated: true, completion: nil)
+//        }
+//        if passwordValueTF.text != nil, passwordValueTF.text?.count != 0 {
+//            print("enjoy pass")
+//        } else {
+//            let alertController = UIAlertController(
+//                title: "",
+//                message: "Enter your password",
+//                preferredStyle:.alert)
+//            let actionOK = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            alertController.addAction(actionOK)
+//            self.present(alertController, animated: true, completion: nil)
+//
+        
+        
+//            if passwordValueTF.text != nil, passwordValueTF.text?.count != 0 {
+//                _ = UIAlertController(
+//                    title: "",
+//                    message: "Enter your password",
+//                    preferredStyle:.alert)
+    
+        
+//        for (userName, password) in namePasswordArray {
+//           if userNameValueTF != nill
+//
+//            if userNameValueTF.text ?? "" == userName ?? "" {
+//                print("User Name is true")
+                
+//                self.navigationController!.pushViewController(self.storyboard?.instantiateViewC‌​ontrollerWithIdentifier("welcomeViewController") as! UIViewController, animated: true)
+
 
