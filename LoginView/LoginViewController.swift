@@ -13,18 +13,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordValueTF: UITextField!
     
     private var userNameSession = ""
-    private let namePasswordArray = ["User" : "1234"]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        userNameValueTF.delegate = self
-        userNameValueTF.tag = 0
-//        passwordValueTF.delegate = self
-        passwordValueTF.tag = 1
-    }
+    private let namePasswordArray = ["User" : "1234", "Admin": "12345"]
     
     @IBAction func forgotNameButton() {
-        showAlert(with: "", and: "Your name is \(userNameSession)")
+        showAlert(with: "", and: "Your name is User")
     }
     
     @IBAction func forgotPasswordButton() {
