@@ -13,7 +13,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordValueTF: UITextField!
     
     private var userNameSession = ""
-    private let namePasswordArray = ["User" : "1234", "Admin" : "12345", "DAV" : "123"]
+    private let namePasswordArray = ["User" : "1234"]
+//    private let namePasswordArray = ["User" : "1234", "Admin" : "12345", "DAV" : "123"]
     
     @IBAction func forgotNameButton() {
         showAlert(with: "", and: "Your name is User")
