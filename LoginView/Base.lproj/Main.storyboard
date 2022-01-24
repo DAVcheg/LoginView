@@ -22,9 +22,9 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9j-aI-fPI">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="39.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                         <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="rMj-hW-9Kp"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="t1M-vE-J7L"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8V-76-pmS">
@@ -32,7 +32,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="nxn-Vk-7Dm"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="xh4-Ln-5CJ"/>
                                         </connections>
                                     </textField>
                                 </subviews>

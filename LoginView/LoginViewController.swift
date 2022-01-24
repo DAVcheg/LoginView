@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var userNameValueTF: UITextField!
     @IBOutlet var passwordValueTF: UITextField!
@@ -17,7 +17,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        userNameValueTF.delegate = self
+        userNameValueTF.tag = 0
+//        passwordValueTF.delegate = self
+        passwordValueTF.tag = 1
     }
     
     @IBAction func forgotNameButton() {
@@ -51,23 +54,46 @@ class ViewController: UIViewController {
         WelcomeVC.userName = userNameSession
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if touches.first != nil {
-            view.endEditing(true)
-        }
-        super.touchesBegan(touches, with: event)
-    }
-    
     private func showAlert(with title: String, and message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+
+// Extension:
     
+// скрытие клавиатуры по нажатию на вью
+    internal override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if touches.first != nil {
+        view.endEditing(true)
+    }
+    super.touchesBegan(touches, with: event)
 }
+// переход по клавише next-done
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    if textField == userNameValueTF {
+        passwordValueTF.becomeFirstResponder()
+    } else {
+        passwordValueTF.resignFirstResponder()
+        return true;
+    }
+    return false
+ }
 
-
+}
+//    extension UITextField {
+//        class func connectFields(fields:[UITextField]) -> Void {
+//            guard let last = fields.last else {
+//                return
+//            }
+//            for i in 0 ..< fields.count - 1 {
+//                fields[i].addTarget(fields[i+1], action: (UIResponder.becomeFirstResponder), for: .editingDidEndOnExit)
+//            }
+//            last.returnKeyType = .go
+//            last.addTarget(last, action: (UIResponder.resignFirstResponder), for: .editingDidEndOnExit)
+//        }
+//    }
 
 //            while userNameValueTF.text != userName || passwordValueTF.text != password {
 //                showAlert(with: "Oops!", and: "Your name or password is wrong")
