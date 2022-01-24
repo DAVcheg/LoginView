@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordValueTF: UITextField!
     
     private var userNameSession = ""
-    private let namePasswordArray = ["User" : "1234", "Admin": "12345"]
+    private let namePasswordArray = ["User" : "1234", "Admin" : "12345", "DAV" : "123"]
     
     @IBAction func forgotNameButton() {
         showAlert(with: "", and: "Your name is User")
@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func logInButton() {
         userNameValueTF.text!.isEmpty ? showAlert(with: "Attention", and: "Enter your name" ) : print("Name enter")
         passwordValueTF.text!.isEmpty ? showAlert(with: "Attention", and: "Enter your password" ) : print("Password enter")
-        for (userName, password) in namePasswordArray {
+        for (userName, password) in namePasswordArray { //Почему проверяет только первого пользователя в словаре? Остальные не могут авторизоваться, где я сделал ошибку в переборе/условии?
             userNameSession = userName
             if userNameValueTF.text != userName || passwordValueTF.text != password {
                 showAlert(with: "Attention", and: "Your name or password is wrong")
