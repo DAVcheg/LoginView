@@ -69,8 +69,8 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="logInButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="EFD-Uu-05z"/>
-                                    <segue destination="ImE-SV-QUm" kind="show" id="InB-vi-BAt"/>
+                                    <action selector="logInButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="11H-si-edR"/>
+                                    <segue destination="ImE-SV-QUm" kind="show" id="hae-mD-r18"/>
                                 </connections>
                             </button>
                         </subviews>
