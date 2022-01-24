@@ -15,6 +15,11 @@ class ViewController: UIViewController {
     private var userNameSession = "User"
     private let namePasswordArray = ["User" : "Password"]
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
     @IBAction func forgotNameButton() {
         showAlert(with: "", and: "Your name is \(userNameSession)")
     }
@@ -46,16 +51,18 @@ class ViewController: UIViewController {
         WelcomeVC.userName = userNameSession
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil {
+            view.endEditing(true)
+        }
+        super.touchesBegan(touches, with: event)
+    }
     
     private func showAlert(with title: String, and message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
-    }
-  //   Метод для скрытия клавиатуры тапом по экрану
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super .touchesBegan(touches, with: event)
     }
     
 }
@@ -116,4 +123,4 @@ class ViewController: UIViewController {
                 
 //                self.navigationController!.pushViewController(self.storyboard?.instantiateViewC‌​ontrollerWithIdentifier("welcomeViewController") as! UIViewController, animated: true)
 
-
+  
