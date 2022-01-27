@@ -19,8 +19,8 @@ class WelcomeViewController: UIViewController {
     }
     
 
-    @IBAction func logOutButton() {
-        dismiss(animated: true)
-    }
+//    @IBAction func logOutButton() {
+//        dismiss(animated: true)
+//    }
     
 }
